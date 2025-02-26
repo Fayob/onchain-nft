@@ -2,9 +2,7 @@ import {ethers} from "hardhat"
 
 async function main () {
   const contractAddress = "0xf00154735B66dDc1985ACe3D1cb4531531268415"
-  const contractFactory = await ethers.getContractFactory("OnchainNFT")
-  const deployedContract = await contractFactory.deploy("MyNFT", "MNFT")
-  console.log("deployed contract ", deployedContract.target)
+  const onchainNFTContract = await ethers.getContractAt("OnchainNFT", contractAddress)
   // parameters to pass into the mintNFT
   const recipientAddress = "0x9A73414365f5D77Fe1D4aA2Ae67a7b5FA3eb01eA"
   const nftName = "Onchain NFT"
@@ -15,7 +13,7 @@ async function main () {
                   "<textPath href='#lineAC' startOffset='80'>I love my new NFT!</textPath>" + 
                   "</text>" +
                   "</svg>"
-  await deployedContract.mintNFT(recipientAddress, nftName, description, imageURI)
+  await onchainNFTContract.mintNFT(recipientAddress, nftName, description, imageURI)
 }
 
 main()
