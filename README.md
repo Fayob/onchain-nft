@@ -11,3 +11,5 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat ignition deploy ./ignition/modules/Lock.ts
 ```
+
+[checkout my article on Onchain-NFT](https://medium.com/@adedejifavour6/creating-on-chain-nfts-a-step-by-step-guide-to-permanent-digital-assets-cd8960e15cb4)

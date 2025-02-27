@@ -22,10 +22,10 @@ async function main () {
                     "</text>" +
                     "</svg>"
 
-  const tx = await onchainNFTContract.mintNFT(recipientAddress, nftName, description, imageURI)
+  const tx = await onchainNFTContract.mintNFT(recipientAddress, nftName, description, imageURI);
   const receipt = await tx.wait();
 
-  // Getting the token Id returned from 
+  // Getting the token Id returned from mintNFT
   let tokenId;
   for (const log of receipt!.logs) {
     try {
