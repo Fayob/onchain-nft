@@ -15,12 +15,8 @@ contract OnchainNFT is ERC721URIStorage, Ownable {
         uint256 tokenId = tokenCounter + 1;
 
         string memory json = Base64.encode(
-            bytes(
-                string(
                     abi.encodePacked('{"name": "', nftName,'", "description": "', desc,'", "image": "data:image/svg+xml;base64,',Base64.encode(bytes(imageURI)),'"}')
-                )
-            )
-        );
+                );
 
         _safeMint(recipient, tokenId);
         _setTokenURI(tokenId, string(abi.encodePacked("data:application/json;base64,", json)));
